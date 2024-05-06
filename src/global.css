@@ -1,0 +1,25 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	min-height: 900px;
+	width: 100vw;
+	min-width: 1440px;
+	font-family: 'Audiowide', sans-serif;
+	color: var(--font-main-color);
+	background-color: rgb(255, 255, 255);
+}
+
+button {
+	font-family: inherit;
+	text-transform: uppercase;
+	cursor: pointer;
+}

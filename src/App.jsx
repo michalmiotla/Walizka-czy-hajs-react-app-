@@ -1,5 +1,9 @@
 function App() {
-	return <p>hello</p>
+	return (
+		<>
+			<p className='audiowide-regular'>hello</p>
+		</>
+	)
 }
 
 export default App
