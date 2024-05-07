@@ -1,7 +1,11 @@
+import { StartPanel } from './components/StartPanel/StartPanel'
+
 function App() {
 	return (
 		<>
-			<p className='audiowide-regular'>hello</p>
+			<div className='background-container'>
+				<StartPanel />
+			</div>
 		</>
 	)
 }

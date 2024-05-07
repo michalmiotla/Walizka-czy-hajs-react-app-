@@ -15,11 +15,26 @@ body {
 	min-width: 1440px;
 	font-family: 'Audiowide', sans-serif;
 	color: var(--font-main-color);
-	background-color: rgb(255, 255, 255);
+	background-color: var(--stroke-color);
 }
 
 button {
 	font-family: inherit;
 	text-transform: uppercase;
 	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+button:hover {
+	background-color: var(--button-hover-color);
+}
+
+.background-container {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 1440px;
+	height: 900px;
+	background-image: url(./assets/bgStudio.png);
 }
