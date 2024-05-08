@@ -1,5 +1,6 @@
 import styles from './StartPanel.module.css'
 import MAN1 from '../../assets/man1.png'
+import { HugeButton } from '../HugeButton/HugeButton'
 
 export function StartPanel() {
 	return (
@@ -14,8 +15,8 @@ export function StartPanel() {
 						DOMU Z WALIZKĄ WYPEŁNIONĄ PO BRZEGI HAJSEM, LUB PACHNĄCYMI NOWOŚCIĄ PLIKAMI PIENIĘDZY PROSTO Z BANKU...
 						POWODZENIA!
 					</p>
-					<button>zaczynamy!</button>
-					<button>zasady gry</button>
+					<HugeButton>zaczynamy!</HugeButton>
+					<HugeButton>zasady gry</HugeButton>
 				</div>
 			</div>
 		</div>

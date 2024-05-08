@@ -1,0 +1,15 @@
+.bar {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 200px;
+	height: 35px;
+	border: 2px solid var(--stroke-color);
+	margin: 11px;
+	background-color: var(--yellow-bar);
+}
+
+.bar p {
+	font-size: var(--font-size-bar);
+    padding: 0;
+}

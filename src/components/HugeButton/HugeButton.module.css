@@ -1,0 +1,7 @@
+.button {
+	width: 300px;
+	height: 65px;
+	font-size: var(--font-size-button);
+	background-color: var(--button-color);
+	border: 1px solid var(--stroke-color);
+}
