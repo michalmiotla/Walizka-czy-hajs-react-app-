@@ -16,3 +16,64 @@
 	height: 100%;
 	padding: 10px 40px;
 }
+
+.cases_section {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	top: 20px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 60%;
+	height: 550px;
+}
+
+.commentary_section {
+	position: absolute;
+	display: flex;
+	bottom: 0;
+	left: 50%;
+	width: 50%;
+	height: 250px;
+	transform: translateX(-50%);
+}
+
+.man {
+	position: absolute;
+	bottom: -50px;
+	left: -90px;
+}
+
+.comment_space {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	left: 120px;
+	bottom: -50px;
+	width: 600px;
+	height: 100px;
+	border-radius: 50px;
+	border-bottom-left-radius: 0;
+	background-color: var(--white-bar);
+	z-index: -10;
+}
+
+.comment_space p {
+	font-size: var(--font-size-comment);
+	text-transform: uppercase;
+}
+
+.help_button {
+	position: absolute;
+	top: 195px;
+	right: -50px;
+	width: 200px;
+	height: 35px;
+	padding: 0;
+	background-color: var(--button-color);
+	border: 2px solid var(--stroke-color);
+	font-size: var(--font-size-bar);
+}
