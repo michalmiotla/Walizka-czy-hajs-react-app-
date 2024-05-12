@@ -2,6 +2,7 @@ import styles from './MainPanel.module.css'
 import { barsAmountsArray, casesArray } from '../../utils/arrays'
 import { ValueBar } from '../ValueBar/ValueBar'
 import { Case } from '../Case/Case'
+import { MiddlePanel } from '../MiddlePanel/MiddlePanel'
 import man2_img from '../../assets/man2.png'
 
 export function MainPanel() {
@@ -13,6 +14,7 @@ export function MainPanel() {
 		<div className={styles.container}>
 			<div className={styles.bars}>{mappedBars}</div>
 			<div className={styles.cases_section}>{cases}</div>
+			<MiddlePanel />
 			<div className={styles.commentary_section}>
 				<img className={styles.man} src={man2_img} alt='' />
 				<div className={styles.comment_space}>
