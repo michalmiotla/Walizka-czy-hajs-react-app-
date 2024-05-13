@@ -1,6 +1,8 @@
 .button {
-	width: 300px;
+	width: fit-content;
+	min-width: 300px;
 	height: 65px;
+	padding: 10px 20px;
 	font-size: var(--font-size-button);
 	background-color: var(--button-color);
 	border: 1px solid var(--stroke-color);

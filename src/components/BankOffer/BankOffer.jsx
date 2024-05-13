@@ -6,7 +6,7 @@ export function BankOffer() {
 		<div className={styles.container}>
 			<div className={styles.offer}>
 				<h2>Bank oferuje...</h2>
-				<p>27.500zł</p>
+				<p>27.500 zł</p>
 			</div>
 			<div className={styles.buttons}>
 				<HugeButton>Gram dalej!</HugeButton>

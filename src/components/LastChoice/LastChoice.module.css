@@ -1,5 +1,90 @@
 .container {
 	position: absolute;
+	display: flex;
+	flex-direction: column;
 	width: 100%;
 	height: 100%;
+
+	.title,
+	.choice,
+	.summary {
+		display: flex;
+		height: calc(100% / 3);
+	}
+
+	.title {
+		align-items: center;
+
+		p {
+			text-align: center;
+			text-transform: uppercase;
+			font-size: var(--font-size-card-title);
+		}
+	}
+
+	.choice {
+		justify-content: space-around;
+		align-items: center;
+		background-color: rgba(0, 0, 0, 0.4);
+
+		.choice_signs {
+			display: flex;
+			justify-content: space-around;
+			width: 45%;
+
+			.arrow {
+				width: 100px;
+				height: 60px;
+			}
+
+			.question_mark {
+				height: 60px;
+			}
+		}
+
+		.choice_case {
+			.case_container {
+				position: relative;
+				display: flex;
+				width: 200px;
+				height: 130px;
+			}
+
+			.case_img {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+			}
+
+			.case_button {
+				position: absolute;
+				top: 60%;
+				left: 51%;
+				height: 97px;
+				width: 123px;
+				border: none;
+				background-color: transparent;
+				transform: translate(-50%, -50%);
+			}
+
+			.case_button:hover {
+				background-color: white;
+			}
+
+			.case_number {
+				font-size: var(--font-size-case-number);
+			}
+		}
+	}
+
+	.summary {
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: center;
+
+		p {
+			text-align: center;
+			font-size: var(--font-size-summary);
+		}
+	}
 }

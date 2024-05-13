@@ -8,16 +8,16 @@
 	border: 10px solid var(--stroke-color);
 	border-radius: 30px;
 	background: var(--board-color);
-	z-index: 10;
-}
+	z-index: 100;
 
-ul {
-	width: 80%;
-	padding-block: 100px;
-}
+	ul {
+		width: 80%;
+		padding-block: 100px;
 
-p {
-	font-size: var(--font-size-description);
-	padding-block: 10px;
-	line-height: 1.15;
+		.paragraph {
+			font-size: var(--font-size-description);
+			padding-block: 10px;
+			line-height: 1.15;
+		}
+	}
 }
