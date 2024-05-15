@@ -1,5 +1,4 @@
 import styles from './LastChoice.module.css'
-import { HugeButton } from '../HugeButton/HugeButton'
 import case_img from '../../assets/case_img.png'
 import my_case from '../../assets/my-case.png'
 import ArrowLeft from '../../assets/ArrowLeft.png'
@@ -37,7 +36,7 @@ export function LastChoice() {
 			</div>
 			<div className={styles.summary}>
 				<p>Wybrałeś walizkę, która była z Tobą od początku. Twoja wygrana to 200.000 zł!</p>
-				<HugeButton>Zagraj ponownie</HugeButton>
+				<button className='big_button'>Zagraj ponownie</button>
 			</div>
 		</div>
 	)

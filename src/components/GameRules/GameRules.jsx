@@ -1,7 +1,6 @@
 import styles from './GameRules.module.css'
-import { HugeButton } from '../HugeButton/HugeButton'
 
-export function GameRules() {
+export function GameRules({ setIsHelpOpened }) {
 	return (
 		<div className={styles.container}>
 			<ul>
@@ -34,7 +33,9 @@ export function GameRules() {
 					</p>
 				</li>
 			</ul>
-			<HugeButton>Zamknij</HugeButton>
+			<button className='big_button' onClick={() => setIsHelpOpened(false)}>
+				Zamknij
+			</button>
 		</div>
 	)
 }
