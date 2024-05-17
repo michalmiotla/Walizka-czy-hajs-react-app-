@@ -1,5 +1,4 @@
 import styles from './AcceptedOffer.module.css'
-import { HugeButton } from '../HugeButton/HugeButton'
 
 export function AcceptedOffer() {
 	return (
@@ -10,7 +9,7 @@ export function AcceptedOffer() {
 			</div>
 			<div className={styles.game_summary}>
 				<p>W wybranej przez Ciebie na starcie rozgrywki walizce znajdowała się kwota w wysokości 200.000 zł</p>
-				<HugeButton>Zagraj ponownie!</HugeButton>
+				<button className='big_button'>Zagraj ponownie!</button>
 			</div>
 		</div>
 	)

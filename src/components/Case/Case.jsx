@@ -1,10 +1,27 @@
 import styles from './Case.module.css'
-import case_img from '../../assets/case_img.png'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
-export function Case({ number, value, setMyCaseValue, setMyCaseNumber, myCaseNumber }) {
+export function Case({
+	number,
+	value,
+	setMyCaseValue,
+	setMyCaseNumber,
+	myCaseNumber,
+	openedCasesValues,
+	setOpenedCasesValues,
+	setIsBankOfferShown,
+}) {
 	const [isCaseOpened, setIsCaseOpened] = useState(false)
 	const [disabledButton, setDisabledButton] = useState(false)
+
+	useEffect(
+		function showBankOffer() {
+			if (openedCasesValues.length === 6 || openedCasesValues.length === 11) {
+				setIsBankOfferShown(true)
+			}
+		},
+		[openedCasesValues, setIsBankOfferShown]
+	)
 
 	function selectMyCase() {
 		setMyCaseNumber(number)
@@ -15,6 +32,7 @@ export function Case({ number, value, setMyCaseValue, setMyCaseNumber, myCaseNum
 	function openRemainingCases() {
 		setIsCaseOpened(true)
 		setDisabledButton(true)
+		setOpenedCasesValues(prevValue => [...prevValue, value])
 	}
 
 	function game() {
@@ -27,7 +45,6 @@ export function Case({ number, value, setMyCaseValue, setMyCaseNumber, myCaseNum
 
 	return (
 		<div className={styles.case_container}>
-			<img className={styles.case_img} src={case_img} alt='' />
 			<button
 				disabled={disabledButton}
 				onClick={game}

@@ -3,6 +3,7 @@
 	display: flex;
 	width: 130px;
 	height: 80px;
+	background-image: url(../../assets/case_img.png);
 }
 
 .case_img {
@@ -16,9 +17,9 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	top: 60%;
+	top: 62%;
 	left: 51%;
-	height: 59px;
+	height: 60px;
 	width: 79px;
 	border: none;
 	background-color: transparent;
@@ -30,11 +31,11 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		top: -1px;
+		top: -2%;
 		width: 152%;
-		height: 105%;
+		height: 107%;
 		border: 2px solid black;
-		border-radius: 8px;
+		border-radius: 10px 10px 5px 5px;
 		background-color: var(--case-color);
 	}
 }
