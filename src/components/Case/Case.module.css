@@ -50,6 +50,10 @@
 	background-color: transparent;
 }
 
+.wait_to_click {
+	cursor: default;
+}
+
 .chosen_case:disabled {
 	color: var(--font-main-color);
 	cursor: default;

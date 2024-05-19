@@ -1,5 +1,5 @@
 import styles from './MainPanel.module.css'
-import { barsAmountsArray, casesArray, sortedAmounts } from '../../utils/arrays'
+import { barsAmountsArray, casesArray, sortAmounts, sortedAmounts } from '../../utils/arrays'
 import { ValueBar } from '../ValueBar/ValueBar'
 import { Case } from '../Case/Case'
 import { BankOffer } from '../BankOffer/BankOffer'
@@ -13,6 +13,9 @@ export function MainPanel() {
 	const [myCaseNumber, setMyCaseNumber] = useState(null)
 	const [openedCasesValues, setOpenedCasesValues] = useState([])
 	const [isBankOfferShown, setIsBankOfferShown] = useState(false)
+	const [isGameRestarted, setIsGameRestarted] = useState(false)
+	const [waitToOpenCase, setWaitToOpenCase] = useState(true)
+	const [remainingCasesValues, setRemainingCasesValues] = useState(sortedAmounts)
 
 	const mappedBars = barsAmountsArray.map(amount => (
 		<ValueBar key={amount} value={amount} openedCasesValues={openedCasesValues}></ValueBar>
@@ -28,15 +31,35 @@ export function MainPanel() {
 			myCaseNumber={myCaseNumber}
 			openedCasesValues={openedCasesValues}
 			setOpenedCasesValues={setOpenedCasesValues}
-			setIsBankOfferShown={setIsBankOfferShown}></Case>
+			setIsBankOfferShown={setIsBankOfferShown}
+			isGameRestarted={isGameRestarted}
+			setIsGameRestarted={setIsGameRestarted}
+			waitToOpenCase={waitToOpenCase}
+			setWaitToOpenCase={setWaitToOpenCase}
+			setRemainingCasesValues={setRemainingCasesValues}></Case>
 	))
+
+	function resetGame() {
+		sortAmounts()
+		setMyCaseValue(null)
+		setMyCaseNumber(null)
+		setOpenedCasesValues([])
+		setIsGameRestarted(true)
+		setRemainingCasesValues(sortedAmounts)
+	}
 
 	return (
 		<>
 			<div className={styles.container}>
 				<div className={styles.bars}>{mappedBars}</div>
 				<div className={styles.cases_section}>{cases}</div>
-				{isBankOfferShown && <BankOffer setIsBankOfferShown={setIsBankOfferShown} />}
+				{isBankOfferShown && (
+					<BankOffer
+						remainingCasesValues={remainingCasesValues}
+						setIsBankOfferShown={setIsBankOfferShown}
+						resetGame={resetGame}
+					/>
+				)}
 				<div className={styles.commentary_section}>
 					<img className={styles.man} src={man2_img} alt='' />
 					<div className={styles.comment_space}>
