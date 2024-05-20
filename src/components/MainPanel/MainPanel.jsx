@@ -6,6 +6,8 @@ import { BankOffer } from '../BankOffer/BankOffer'
 import { GameRules } from '../GameRules/GameRules'
 import man2_img from '../../assets/man2.png'
 import { useState } from 'react'
+import { switchComment } from '../../utils/switchComment'
+import { LastChoice } from '../LastChoice/LastChoice'
 
 export function MainPanel() {
 	const [isHelpOpened, setIsHelpOpened] = useState(false)
@@ -16,6 +18,9 @@ export function MainPanel() {
 	const [isGameRestarted, setIsGameRestarted] = useState(false)
 	const [waitToOpenCase, setWaitToOpenCase] = useState(true)
 	const [remainingCasesValues, setRemainingCasesValues] = useState(sortedAmounts)
+	const [remainingCasesNumbers, setRemainingCasesNumbers] = useState(casesArray)
+
+	const comment = switchComment(remainingCasesValues, myCaseNumber, waitToOpenCase, isBankOfferShown)
 
 	const mappedBars = barsAmountsArray.map(amount => (
 		<ValueBar key={amount} value={amount} openedCasesValues={openedCasesValues}></ValueBar>
@@ -36,7 +41,8 @@ export function MainPanel() {
 			setIsGameRestarted={setIsGameRestarted}
 			waitToOpenCase={waitToOpenCase}
 			setWaitToOpenCase={setWaitToOpenCase}
-			setRemainingCasesValues={setRemainingCasesValues}></Case>
+			setRemainingCasesValues={setRemainingCasesValues}
+			setRemainingCasesNumbers={setRemainingCasesNumbers}></Case>
 	))
 
 	function resetGame() {
@@ -44,8 +50,9 @@ export function MainPanel() {
 		setMyCaseValue(null)
 		setMyCaseNumber(null)
 		setOpenedCasesValues([])
-		setIsGameRestarted(true)
 		setRemainingCasesValues(sortedAmounts)
+		setRemainingCasesNumbers(casesArray)
+		setIsGameRestarted(true)
 	}
 
 	return (
@@ -60,12 +67,19 @@ export function MainPanel() {
 						resetGame={resetGame}
 					/>
 				)}
+				{remainingCasesValues.length === 2 && !isBankOfferShown && waitToOpenCase && (
+					<LastChoice
+						myCaseNumber={myCaseNumber}
+						myCaseValue={myCaseValue}
+						remainingCasesValues={remainingCasesValues}
+						remainingCasesNumbers={remainingCasesNumbers}
+						resetGame={resetGame}
+					/>
+				)}
 				<div className={styles.commentary_section}>
 					<img className={styles.man} src={man2_img} alt='' />
 					<div className={styles.comment_space}>
-						<p>
-							Wybrałeś walizkę nr. {myCaseNumber} {myCaseValue}
-						</p>
+						<p>{comment}</p>
 					</div>
 					<button className={styles.help_button} onClick={() => setIsHelpOpened(true)}>
 						zasady gry

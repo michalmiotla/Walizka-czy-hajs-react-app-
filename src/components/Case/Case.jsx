@@ -15,6 +15,7 @@ export function Case({
 	setWaitToOpenCase,
 	waitToOpenCase,
 	setRemainingCasesValues,
+	setRemainingCasesNumbers,
 }) {
 	const [isCaseOpened, setIsCaseOpened] = useState(false)
 	const [disabledButton, setDisabledButton] = useState(false)
@@ -69,6 +70,7 @@ export function Case({
 			setDisabledButton(true)
 			setOpenedCasesValues(prevValue => [...prevValue, value])
 			setRemainingCasesValues(prevValue => prevValue.filter(c => c !== value))
+			setRemainingCasesNumbers(prevValue => prevValue.filter(c => c !== number))
 			setWaitToOpenCase(false)
 		}
 	}
