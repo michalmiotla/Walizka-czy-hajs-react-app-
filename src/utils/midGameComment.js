@@ -1,4 +1,12 @@
-export function switchComment(remainingValues, myCaseNumber, waitToOpenCase, isBankOfferShown) {
+export function midGameComment(
+	remainingValues,
+	myCaseNumber,
+	waitToOpenCase,
+	isBankOfferShown,
+	lastCaseNumber,
+	isMyCaseChosen,
+	isLastCaseChosen
+) {
 	switch (true) {
 		case remainingValues.length === 26:
 			return myCaseNumber
@@ -87,8 +95,9 @@ export function switchComment(remainingValues, myCaseNumber, waitToOpenCase, isB
 				? 'Oto ostatnia propozycja wykupu Twojej walizki przez Bank...'
 				: isBankOfferShown
 				? 'Walizka, czy hajs?'
-				: `Wóz albo przewóz. Radość lub smutek. Zostajesz przy swojej pierwotnej decyzji i walizce nr. ${myCaseNumber}, czy dokonujesz zmiany i kończysz grę z walizką nr. ..?`
-
+				: isMyCaseChosen || isLastCaseChosen
+				? ''
+				: `Wóz albo przewóz. Radość lub smutek. Zostajesz przy swojej pierwotnej decyzji i walizce nr. ${myCaseNumber}, czy dokonujesz zmiany i kończysz grę z walizką nr. ${lastCaseNumber[0]}?`
 		default:
 			break
 	}

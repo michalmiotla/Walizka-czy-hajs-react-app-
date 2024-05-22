@@ -6,7 +6,7 @@ import { BankOffer } from '../BankOffer/BankOffer'
 import { GameRules } from '../GameRules/GameRules'
 import man2_img from '../../assets/man2.png'
 import { useState } from 'react'
-import { switchComment } from '../../utils/switchComment'
+import { midGameComment } from '../../utils/midGameComment'
 import { LastChoice } from '../LastChoice/LastChoice'
 
 export function MainPanel() {
@@ -19,8 +19,23 @@ export function MainPanel() {
 	const [waitToOpenCase, setWaitToOpenCase] = useState(true)
 	const [remainingCasesValues, setRemainingCasesValues] = useState(sortedAmounts)
 	const [remainingCasesNumbers, setRemainingCasesNumbers] = useState(casesArray)
+	const [isMyCaseChosen, setIsMyCaseChosen] = useState(false)
+	const [isLastCaseChosen, setIsLastCaseChosen] = useState(false)
 
-	const comment = switchComment(remainingCasesValues, myCaseNumber, waitToOpenCase, isBankOfferShown)
+	const lastCaseValue = remainingCasesValues.filter(value => value !== myCaseValue)
+	const lastCaseNumber = remainingCasesNumbers.filter(number => number !== myCaseNumber)
+
+	const midComment = midGameComment(
+		remainingCasesValues,
+		myCaseNumber,
+		waitToOpenCase,
+		isBankOfferShown,
+		lastCaseNumber,
+		isMyCaseChosen,
+		isLastCaseChosen
+	)
+
+	console.log(isMyCaseChosen || isLastCaseChosen)
 
 	const mappedBars = barsAmountsArray.map(amount => (
 		<ValueBar key={amount} value={amount} openedCasesValues={openedCasesValues}></ValueBar>
@@ -71,15 +86,19 @@ export function MainPanel() {
 					<LastChoice
 						myCaseNumber={myCaseNumber}
 						myCaseValue={myCaseValue}
-						remainingCasesValues={remainingCasesValues}
-						remainingCasesNumbers={remainingCasesNumbers}
 						resetGame={resetGame}
+						lastCaseValue={lastCaseValue}
+						lastCaseNumber={lastCaseNumber}
+						setIsMyCaseChosen={setIsMyCaseChosen}
+						isMyCaseChosen={isMyCaseChosen}
+						setIsLastCaseChosen={setIsLastCaseChosen}
+						isLastCaseChosen={isLastCaseChosen}
 					/>
 				)}
 				<div className={styles.commentary_section}>
 					<img className={styles.man} src={man2_img} alt='' />
 					<div className={styles.comment_space}>
-						<p>{comment}</p>
+						<p>{midComment}</p>
 					</div>
 					<button className={styles.help_button} onClick={() => setIsHelpOpened(true)}>
 						zasady gry
