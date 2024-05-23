@@ -6,15 +6,23 @@ export function GameRules({ setIsHelpOpened }) {
 			<ul>
 				<li>
 					<p className={styles.paragraph}>
-						Na początek gracz wybiera jedną z dwudziestu sześciu dostępnych walizek, które kryją w sobie różne kwoty -
-						od jednego grosza, aż po milion złotych. Walizka ta będzie z graczem do końca gry.{' '}
+						Celem gry jest osiągnięcie możliwie najwyższej wygranej pieniężnej, poprzez podejmowanie odpowiednich
+						decyzji w trakcie rozgrywki. Pieniądze można wygrać dzięki przyjęciu jednej z ofert Banku, lub zostając z
+						jedną walizką i jej zawartością na końcu gry.
 					</p>
 				</li>
 				<li>
 					<p className={styles.paragraph}>
-						Po wybraniu swojej walizki gracz przystępuje do odsłaniania zawartości pozostałych, niewybranych walizek. W
-						każdej rundzie gracz ma określoną (z każdą rundą coraz mniejszą) liczbę walizek do otwarcia. Tym sposobem
-						eliminowane są kolejne stawki, które na pewno nie znajdują się w walizce wybranej przez gracza.{' '}
+						Na start gracz wybiera jedną z dwudziestu sześciu dostępnych walizek, które kryją w sobie różne kwoty - od
+						jednego grosza, aż po milion złotych. Walizka ta będzie z graczem do końca gry, jeśli nie przyjmie wcześniej oferty z Banku.
+					</p>
+				</li>
+				<li>
+					<p className={styles.paragraph}>
+						Po wybraniu swojej walizki gracz przystępuje do odsłaniania zawartości pozostałych walizek. W każdej rundzie
+						gracz ma określoną (z każdą rundą coraz mniejszą) liczbę walizek do otwarcia. Tym sposobem eliminowane są
+						kolejne wartości, które na pewno nie znajdują się w walizce wybranej przez gracza, zatem im mniejsza odkryta
+						wartość, tym lepiej.
 					</p>
 				</li>
 				<li>
@@ -26,9 +34,9 @@ export function GameRules({ setIsHelpOpened }) {
 				</li>
 				<li>
 					<p className={styles.paragraph}>
-						W momencie gry zostaną trzy walizki w grze (wybrana na początku oraz dwie nieotwarte) gracz otrzymuje
-						ostatnią ofertę od Banku. Jeśli ją odrzuci, zostaje z ostatnim wyborem - zostaje przy walizce wybranej na
-						początku lub zamienia ją na tą jedyną nieotwartą. Po tym wyborze gra kończy się, a gracz wygrywa kwotę z
+						W momencie, gdy zostaną trzy walizki w grze (wybrana na początku oraz dwie nieotwarte) gracz otrzymuje
+						ostatnią ofertę od Banku. Jeśli ją odrzuci, musi podjąć decyzję - zostaje przy walizce wybranej na początku
+						gry, lub zamienia ją na jedyną dotychczas nieotwartą. Po tym wyborze gra kończy się, a gracz wygrywa kwotę z
 						walizki wybranej w ostatnim etapie gry.
 					</p>
 				</li>

@@ -1,13 +1,14 @@
 import styles from './BankOffer.module.css'
 import { AcceptedOffer } from '../AcceptedOffer/AcceptedOffer'
-import { useState } from 'react'
-import { bankOfferCalc } from '../../utils/bankOfferCalc'
 
-export function BankOffer({ remainingCasesValues, setIsBankOfferShown, resetGame }) {
-	const [isOfferAccepted, setIsOfferAccepted] = useState(false)
-
-	const wonValue = bankOfferCalc(remainingCasesValues)
-
+export function BankOffer({
+	setIsBankOfferShown,
+	resetGame,
+	setIsOfferAccepted,
+	isOfferAccepted,
+	wonValue,
+	myCaseValue,
+}) {
 	return (
 		<>
 			<div className={` ${isOfferAccepted ? styles.container_hidden : styles.container}`}>
@@ -30,6 +31,7 @@ export function BankOffer({ remainingCasesValues, setIsBankOfferShown, resetGame
 					setIsBankOfferShown={setIsBankOfferShown}
 					resetGame={resetGame}
 					wonValue={wonValue}
+					myCaseValue={myCaseValue}
 				/>
 			)}
 		</>

@@ -1,6 +1,6 @@
 import styles from './AcceptedOffer.module.css'
 
-export function AcceptedOffer({ setIsOfferAccepted, setIsBankOfferShown, resetGame, wonValue }) {
+export function AcceptedOffer({ setIsOfferAccepted, setIsBankOfferShown, resetGame, wonValue, myCaseValue }) {
 	return (
 		<div className={styles.container}>
 			<div className={styles.offer}>
@@ -8,7 +8,7 @@ export function AcceptedOffer({ setIsOfferAccepted, setIsBankOfferShown, resetGa
 				<p>{wonValue} zł</p>
 			</div>
 			<div className={styles.game_summary}>
-				<p>W wybranej przez Ciebie na starcie rozgrywki walizce znajdowała się kwota w wysokości 200.000 zł</p>
+				<p>W wybranej przez Ciebie na starcie rozgrywki walizce znajdowała się kwota w wysokości {myCaseValue} zł.</p>
 				<button
 					onClick={() => {
 						resetGame()

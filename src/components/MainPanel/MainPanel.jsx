@@ -8,6 +8,9 @@ import man2_img from '../../assets/man2.png'
 import { useState } from 'react'
 import { midGameComment } from '../../utils/midGameComment'
 import { LastChoice } from '../LastChoice/LastChoice'
+import { lastChoiceComment } from '../../utils/lastChoiceComment'
+import { acceptedOfferComment } from '../../utils/acceptedOfferComment'
+import { bankOfferCalc } from '../../utils/bankOfferCalc'
 
 export function MainPanel() {
 	const [isHelpOpened, setIsHelpOpened] = useState(false)
@@ -21,9 +24,14 @@ export function MainPanel() {
 	const [remainingCasesNumbers, setRemainingCasesNumbers] = useState(casesArray)
 	const [isMyCaseChosen, setIsMyCaseChosen] = useState(false)
 	const [isLastCaseChosen, setIsLastCaseChosen] = useState(false)
+	const [isOfferAccepted, setIsOfferAccepted] = useState(false)
 
 	const lastCaseValue = remainingCasesValues.filter(value => value !== myCaseValue)
 	const lastCaseNumber = remainingCasesNumbers.filter(number => number !== myCaseNumber)
+	const wonValue = bankOfferCalc(remainingCasesValues)
+
+	console.log(isMyCaseChosen)
+	console.log(isLastCaseChosen)
 
 	const midComment = midGameComment(
 		remainingCasesValues,
@@ -35,7 +43,9 @@ export function MainPanel() {
 		isLastCaseChosen
 	)
 
-	console.log(isMyCaseChosen || isLastCaseChosen)
+	const lastComment = lastChoiceComment(lastCaseValue, myCaseValue, isMyCaseChosen, isLastCaseChosen)
+
+	const acceptedComment = acceptedOfferComment(isOfferAccepted, wonValue, myCaseValue)
 
 	const mappedBars = barsAmountsArray.map(amount => (
 		<ValueBar key={amount} value={amount} openedCasesValues={openedCasesValues}></ValueBar>
@@ -80,6 +90,10 @@ export function MainPanel() {
 						remainingCasesValues={remainingCasesValues}
 						setIsBankOfferShown={setIsBankOfferShown}
 						resetGame={resetGame}
+						setIsOfferAccepted={setIsOfferAccepted}
+						isOfferAccepted={isOfferAccepted}
+						wonValue={wonValue}
+						myCaseValue={myCaseValue}
 					/>
 				)}
 				{remainingCasesValues.length === 2 && !isBankOfferShown && waitToOpenCase && (
@@ -98,7 +112,8 @@ export function MainPanel() {
 				<div className={styles.commentary_section}>
 					<img className={styles.man} src={man2_img} alt='' />
 					<div className={styles.comment_space}>
-						<p>{midComment}</p>
+						<p>{isOfferAccepted ? acceptedComment : midComment}</p>
+						<p>{(isMyCaseChosen || isLastCaseChosen) && lastComment}</p>
 					</div>
 					<button className={styles.help_button} onClick={() => setIsHelpOpened(true)}>
 						zasady gry

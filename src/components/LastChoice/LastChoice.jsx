@@ -7,7 +7,6 @@ export function LastChoice({
 	myCaseNumber,
 	myCaseValue,
 	resetGame,
-	isGameRestarted,
 	lastCaseValue,
 	lastCaseNumber,
 	setIsMyCaseChosen,
@@ -20,23 +19,18 @@ export function LastChoice({
 	function chooseMyCase() {
 		setIsMyCaseChosen(true)
 		setDisabledButton(true)
-
-		if (isGameRestarted) {
-			setIsLastCaseChosen(false)
-			setIsMyCaseChosen(false)
-			setDisabledButton(false)
-		}
 	}
 
 	function chooseLastCase() {
 		setIsLastCaseChosen(true)
 		setDisabledButton(true)
+	}
 
-		if (isGameRestarted) {
-			setIsLastCaseChosen(false)
-			setIsMyCaseChosen(false)
-			setDisabledButton(false)
-		}
+	function playAgain() {
+		resetGame()
+		setIsLastCaseChosen(false)
+		setIsMyCaseChosen(false)
+		setDisabledButton(false)
 	}
 
 	return (
@@ -80,7 +74,7 @@ export function LastChoice({
 				{isMyCaseChosen && (
 					<>
 						<p>Wybrałeś walizkę, która była z Tobą od początku gry. Twoja wygrana to {myCaseValue} zł!</p>
-						<button onClick={resetGame} className='big_button'>
+						<button onClick={playAgain} className='big_button'>
 							Zagraj ponownie
 						</button>
 					</>
@@ -88,7 +82,7 @@ export function LastChoice({
 				{isLastCaseChosen && (
 					<>
 						<p>Wybrałeś walizkę, która nie była Twoim pierwszym wyborem. Twoja wygrana to {lastCaseValue} zł!</p>
-						<button onClick={resetGame} className='big_button'>
+						<button onClick={playAgain} className='big_button'>
 							Zagraj ponownie
 						</button>
 					</>
