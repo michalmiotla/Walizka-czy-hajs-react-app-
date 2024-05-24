@@ -12,7 +12,7 @@
 
 	ul {
 		width: 80%;
-		padding-block: 100px;
+		padding-block: 50px;
 
 		.paragraph {
 			font-size: var(--font-size-description);

@@ -30,9 +30,6 @@ export function MainPanel() {
 	const lastCaseNumber = remainingCasesNumbers.filter(number => number !== myCaseNumber)
 	const wonValue = bankOfferCalc(remainingCasesValues)
 
-	console.log(isMyCaseChosen)
-	console.log(isLastCaseChosen)
-
 	const midComment = midGameComment(
 		remainingCasesValues,
 		myCaseNumber,

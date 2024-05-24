@@ -3,6 +3,7 @@
 	width: 1340px;
 	height: 800px;
 	background-color: rgba(0, 0, 0, 0.5);
+	overflow: hidden;
 
 	.bars {
 		position: relative;
@@ -40,8 +41,8 @@
 
 		.man {
 			position: absolute;
-			bottom: -50px;
-			left: -90px;
+			bottom: -30px;
+			left: -95px;
 		}
 
 		.comment_space {
@@ -50,12 +51,11 @@
 			justify-content: center;
 			align-items: center;
 			left: 120px;
-			bottom: -50px;
+			bottom: -60px;
 			width: 600px;
 			height: 100px;
 			padding: 0 20px;
-			border-radius: 50px;
-			border-bottom-left-radius: 0;
+			border-radius: 30px;
 			background-color: var(--white-bar);
 			z-index: -10;
 		}

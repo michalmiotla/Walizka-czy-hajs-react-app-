@@ -8,7 +8,7 @@ export function GameRules({ setIsHelpOpened }) {
 					<p className={styles.paragraph}>
 						Celem gry jest osiągnięcie możliwie najwyższej wygranej pieniężnej, poprzez podejmowanie odpowiednich
 						decyzji w trakcie rozgrywki. Pieniądze można wygrać dzięki przyjęciu jednej z ofert Banku, lub zostając z
-						jedną walizką i jej zawartością na końcu gry.
+						jedną walizką i jej zawartością na koniec gry.
 					</p>
 				</li>
 				<li>

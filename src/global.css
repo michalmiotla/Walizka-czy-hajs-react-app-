@@ -44,7 +44,10 @@ button:hover {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 1440px;
-	height: 900px;
+	width: 100vw;
+	min-width: 1440px;
+	height: 100vh;
+	min-height: 900px;
 	background-image: url(./assets/bgStudio.png);
+	background-size: cover;
 }
