@@ -33,5 +33,13 @@ That was the most complicated project in my learning road so far. I have used Re
 
 ## Screenshots
 
+![Screenshot_1](https://github.com/michalmiotla/Walizka-czy-hajs-react-app-/assets/128308652/62642902-ae6f-4e9a-b037-a158f632ed1a)
+
+![Screenshot_2](https://github.com/michalmiotla/Walizka-czy-hajs-react-app-/assets/128308652/5b8cd099-c143-413a-80ef-e0dedb3e0ed2)
+
+![Screenshot_3](https://github.com/michalmiotla/Walizka-czy-hajs-react-app-/assets/128308652/f3912339-72df-418f-8129-3b906f38eb6a)
+
+![Screenshot_4](https://github.com/michalmiotla/Walizka-czy-hajs-react-app-/assets/128308652/3cc325d3-cf49-4bbe-bd66-183385a10ad5)
+
 
 
